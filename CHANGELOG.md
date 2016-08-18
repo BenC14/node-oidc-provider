@@ -1,6 +1,16 @@
 Following semver, 1.0.0 will mark the first API stable release and commence of this file,
 until then please use the compare views of github for reference.
 
+- feature/dynamic-client-registration-management-protocol
+  - added: Initial Access Token for Dynamic Registration (either fixed string or backed by adapter)
+  - added: Update and Delete from RFC7592 - OAuth 2.0 Dynamic Client Registration Management
+  Protocol
+  - change: dynamic registration related events now include the relevant CRUD verb
+  - BREAKING CHANGE: `registration_access_token`s of previously registered clients from dynamic
+  registration are now invalid, create new ones with
+  `new RegistrationAccessToken({ clientId }).save()` this, when resolved, returns the string value
+  of a new registration_access_token
+
 - https://github.com/panva/node-oidc-provider/compare/v0.10.0...0.10.2
   - fix: push nonce from code to refresh token and then id_token upon refresh
   - fix: RFC6749 4.1.2.1 - missing, unrecognized, invalid clientid and redirect_uri handling (consistent no redirect)
