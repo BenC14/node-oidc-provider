@@ -62,7 +62,7 @@ describe('grant_type=refresh_token', function () {
         .expect(200)
         .expect((response) => {
           expect(response.body).to.have.property('refresh_token');
-          const jti = j(base64url(response.body.refresh_token.split('.')[0])).jti;
+          const jti = response.body.refresh_token.split('.')[0];
           this.refreshToken = RefreshToken.adapter.syncFind(jti);
           this.rt = response.body.refresh_token;
         })

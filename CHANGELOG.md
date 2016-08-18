@@ -1,6 +1,11 @@
 Following semver, 1.0.0 will mark the first API stable release and commence of this file,
 until then please use the compare views of github for reference.
 
+- feature/change-token-format
+  - BREAKING: ALL previously issued tokens are incompatible with the new version, the value of the
+  tokens is now shorter and does not contain any information about the token context or type
+  - fix: revocation is only possible for client's OWN tokens
+
 - https://github.com/panva/node-oidc-provider/compare/v0.10.0...0.10.2
   - fix: push nonce from code to refresh token and then id_token upon refresh
   - fix: RFC6749 4.1.2.1 - missing, unrecognized, invalid clientid and redirect_uri handling (consistent no redirect)
@@ -9,7 +14,8 @@ until then please use the compare views of github for reference.
   - added: returning distributed and aggregated claims
   - added: Back-Channel Logout draft implementation
   - added: registration.success event
-  - added: allow clients for introspections/revocations only (Resource Servers) with no authorization flow access
+  - added: allow clients for introspections/revocations only (Resource Servers) with no
+  authorization flow access
   - added: draft / experimental features now warn upon provider init
   - fix: introspection follows normal/pairwise subject claim of the token's client
   - fix: added client_id_issued_at client property upon registration
@@ -18,12 +24,14 @@ until then please use the compare views of github for reference.
   - fix: consent_required error now returned when consent prompt is not resolved
   - fix: now validates payload of none-signed id_token_hints
   - fix: signed userinfo token expiration
-  - fix: unsigned (when id_token_signed_response_alg is not defined, not when none) are now properly unsigned, jwe payload is the userinfo response, not a jwt
+  - fix: unsigned (when id_token_signed_response_alg is not defined, not when none) are now properly
+  unsigned, jwe payload is the userinfo response, not a jwt
 - https://github.com/panva/node-oidc-provider/compare/v0.7.2...v0.8.1
   - fixed a bug that allowed userinfo and idtoken encrypting clients to pass validation
   - account is configured entirely different now - check examples!
 - https://github.com/panva/node-oidc-provider/compare/v0.7.1...v0.7.2
-  - fixed a bug that prevented non default client auth strategies to be recognized for introspection and revocation
+  - fixed a bug that prevented non default client auth strategies to be recognized for introspection
+  and revocation
 - https://github.com/panva/node-oidc-provider/compare/v0.7.0...v0.7.1
   - fixed a bug that prevented refresh_token grant from issuing an id_token
 - https://github.com/panva/node-oidc-provider/compare/v0.6.0...v0.7.0

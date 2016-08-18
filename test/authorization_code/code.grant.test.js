@@ -4,11 +4,9 @@ const {
   agent, provider
 } = require('../test_helper')(__dirname);
 const sinon = require('sinon');
-const { decode: base64url } = require('base64url');
 const { parse: parseUrl } = require('url');
 const { expect } = require('chai');
 
-const j = JSON.parse;
 const AuthorizationCode = provider.get('AuthorizationCode');
 const route = '/token';
 
@@ -40,7 +38,7 @@ describe('grant_type=authorization_code', function () {
       .expect(302)
       .expect((response) => {
         const { query: { code } } = parseUrl(response.headers.location, true);
-        const jti = j(base64url(code.split('.')[0])).jti;
+        const jti = code.split('.')[0];
         this.code = AuthorizationCode.adapter.syncFind(jti);
         this.ac = code;
       });
