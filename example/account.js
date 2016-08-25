@@ -1,3 +1,4 @@
+const fetch = require('isomorphic-fetch');
 'use strict';
 
 const store = new Map();
@@ -41,6 +42,34 @@ class Account {
       zoneinfo: 'Europe/Berlin',
     };
   }
+
+  static findByAtkLogin(loginBody) {
+    const myToken = `+z7IaZOGGSacErDBdgsQejfg2QDdbZb32O1FlVBimw/JchSz+mOaVQany7L9YoFL0+D2r/VeNWAEYR5e9yaPDA==`;
+    var myInit = {
+      method: 'POST',
+      headers: {
+	//'X-Auth-Token': myToken,
+	'Authorization': `Token token="${myToken}", client="atk"`,
+        'Content-Type': 'application/json'
+      },
+      body: `{
+	"email": "${loginBody.login}",
+	"password": "${loginBody.password}"
+    }`
+    };
+
+    const url = 'http://www-test.americastestkitchen.com:3000/api/v4/sign_in?site_key=atk';
+  return (
+    fetch(url, myInit)
+      .then(function(response) {
+	return response.json();
+      })
+      .catch(function(error) {
+        console.error(error);
+      })
+    );
+  }
+
 
   static findByLogin(login) {
     if (!logins.get(login)) {

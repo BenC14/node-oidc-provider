@@ -11,7 +11,7 @@ const rewrite = require('koa-rewrite');
 const Router = require('koa-router');
 const render = require('koa-ejs');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3200;
 const app = koa();
 
 render(app, {
@@ -26,7 +26,7 @@ const Account = require('./account');
 const settings = require('./settings');
 const Provider = require('../lib').Provider;
 
-const issuer = process.env.ISSUER || 'http://localhost:3000/op';
+const issuer = process.env.ISSUER || 'http://127.0.0.1:3200/op';
 
 if (process.env.HEROKU) {
   settings.config.timeouts = {
@@ -89,19 +89,19 @@ router.get('/interaction/:grant', function * renderInteraction(next) {
 });
 
 router.post('/login', body(), function * submitLoginForm() {
-  const account = yield Account.findByLogin(this.request.body.login);
-
+  const account = yield Account.findByAtkLogin(this.request.body);
+  console.log(account);
   const result = {
     login: {
-      account: account.accountId,
+      account: account,
       acr: '1',
       remember: !!this.request.body.remember,
       ts: Date.now() / 1000 | 0,
     },
     consent: {},
   };
-
-  provider.resume(this, this.request.body.uuid, result);
+  console.log(account);
+  provider.resume(this, this.request.body.uuid, account);
 });
 
 app.use(router.routes());
@@ -109,6 +109,7 @@ app.use(router.routes());
 Promise.all(settings.certificates.map(cert => provider.addKey(cert)))
   .then(() => Promise.all(
     settings.clients.map(client => provider.addClient(client))
+
   ).catch(console.error))
   .then(
     () => app.listen(port));
