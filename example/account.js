@@ -12,6 +12,7 @@ class Account {
   }
 
   claims() {
+    console.log('I was called!');
     return {
       address: {
         country: '000',
@@ -22,7 +23,7 @@ class Account {
         street_address: '000',
       },
       birthdate: '1987-10-16',
-      email: 'johndoe@example.com',
+      email: store.get(this.accountId),
       email_verified: false,
       family_name: 'Doe',
       gender: 'male',
@@ -44,7 +45,7 @@ class Account {
   }
 
   static findByAtkLogin(loginBody) {
-    const myToken = `+z7IaZOGGSacErDBdgsQejfg2QDdbZb32O1FlVBimw/JchSz+mOaVQany7L9YoFL0+D2r/VeNWAEYR5e9yaPDA==`;
+    const myToken = `1yYQs1k3U2YWJIjBdCLvARscFV+QJMYVOzUqtgVSrgQVkkkQc80yHYcn+B/ULRbTH2mnIa9bnKfUqCmiO8PSdg==`;
     var myInit = {
       method: 'POST',
       headers: {
@@ -72,6 +73,7 @@ class Account {
 
 
   static findByLogin(login) {
+    console.log('find by login called');
     if (!logins.get(login)) {
       logins.set(login, new Account());
     }
@@ -80,6 +82,7 @@ class Account {
   }
 
   static findById(id) {
+    console.log('findbyId called');
     if (!store.get(id)) new Account(id); // eslint-disable-line no-new
     return Promise.resolve(store.get(id));
   }

@@ -93,7 +93,7 @@ router.post('/login', body(), function * submitLoginForm() {
   console.log(account);
   const result = {
     login: {
-      account: account,
+      account: account.data.email,
       acr: '1',
       remember: !!this.request.body.remember,
       ts: Date.now() / 1000 | 0,
@@ -101,7 +101,7 @@ router.post('/login', body(), function * submitLoginForm() {
     consent: {},
   };
   console.log(account);
-  provider.resume(this, this.request.body.uuid, account);
+  provider.resume(this, this.request.body.uuid, result);
 });
 
 app.use(router.routes());

@@ -51,8 +51,8 @@ module.exports.config = {
 module.exports.clients = [{
   client_id: 'oidcCLIENT',
   client_secret: '91c0fabd17a9db3cfe53f28a10728e39b7724e234ecd78dba1fb05b909fb4ed98c476afc50a634d52808ad3cb2ea744bc8c3b45b7149ec459b5c416a6e8db242',
-  grant_types: ['client_credentials', 'refresh_token', 'authorization_code'],
-  redirect_uris: ['http://sso-client.dev/providers/7/open_id', 'http://sso-client.dev/providers/8/open_id', 'http://www-test.americastestkitchen.com:3000/users/auth/openid_connect/callback'],
+  rant_types: ['client_credentials', 'refresh_token', 'authorization_code'],
+  redirect_uris: ['http://sso-client.dev/providers/7/open_id', 'http://sso-client.dev/providers/8/open_id', 'http://www-test.americastestkitchen.com:3000/auth/atk-connect/callback'],
 }];
 
 module.exports.certificates = [{
