@@ -2,13 +2,24 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Sign-in</title>
+    <title>ONE SIGN ON TO RULE THEM ALL</title>
     <style type="text/css">
-      @import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
+      @import url('https://fonts.googleapis.com/css?family=Merriweather|Montserrat');
 
       body {
-        font-family: 'Roboto', sans-serif;
-        margin-top: 50px;
+        margin: 60px 0 0 0;
+        background-color: #f5f5f5;
+      }
+
+      .sso-brag {
+        background-color: #6ba6aa;
+        color: #fff;
+        font-family: Montserrat, sans-serif;
+        padding: 5px 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100%;
       }
 
       .login-card {
@@ -16,17 +27,20 @@
         padding-top: 0px;
         padding-bottom: 10px;
         width: 274px;
-        background-color: #F7F7F7;
+        background-color: #fff;
         margin: 0 auto 10px;
         border-radius: 2px;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         overflow: hidden;
       }
 
       .login-card h1 {
+        color: #3d3d3d;
+        font-family: Montserrat, sans-serif;
+        font-size: 2em;
         font-weight: 100;
+        margin: 10px 0;
         text-align: center;
-        font-size: 2.3em;
+        text-transform: uppercase;
       }
 
       .login-card [type=submit] {
@@ -43,19 +57,10 @@
         margin-bottom: 10px;
         -webkit-appearance: none;
         background: #fff;
-        border: 1px solid #d9d9d9;
-        border-top: 1px solid #c0c0c0;
+        border: 1px solid #3d3d3d;
         padding: 0 8px;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
-      }
-
-      .login-card input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
-        border: 1px solid #b9b9b9;
-        border-top: 1px solid #a0a0a0;
-        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
       }
 
       .login {
@@ -68,16 +73,19 @@
       }
 
       .login-submit {
+        background-color: #d73a15;
         border: 0px;
         color: #fff;
+        font-family: Montserrat, sans-serif;
         text-shadow: 0 1px rgba(0,0,0,0.1);
-        background-color: #4d90fe;
+        text-transform: uppercase;
+        transition: all .2s linear;
       }
 
       .login-submit:hover {
         border: 0px;
         text-shadow: 0 1px rgba(0,0,0,0.3);
-        background-color: #357ae8;
+        background-color: #a72e12;
       }
 
       .login-card a {
@@ -113,6 +121,11 @@
         font-size: 16px;
       }
 
+      .logo-container {
+        padding-top: 1em;
+        text-align: center;
+      }
+
       .grant-debug {
         font-family: Fixed, monospace;
         width: 100%;
@@ -124,19 +137,43 @@
     </style>
   </head>
   <body>
-    <div class="login-card">
-      <h1>Sign-in</h1>
-      <div class="login-client-image">
-        <% if (locals.client.logoUri) { %><img src="<%= locals.client.logoUri %>"><% } %>
+      <div class="sso-brag">
+        Our BEST Sign On Experience EVER! Up To 50% Fewer Sign Ons!
       </div>
+    <div class="login-card">
+      <div class="logo-container">
+        <svg version="1.1" id="Layer_1" x="0px" y="0px" width="96.1px" height="35.2px" viewBox="0 0 96.1 35.2" preserveAspectRatio="xMinYMid" data-reactid="82"><g data-reactid="83"><polygon fill="#D73A15" points="96.1,35.2 0,35.2 0,0 96.1,0 96.1,35.2  " data-reactid="84"></polygon><polygon fill="#FFFFFF" points="11.9,16.1 17.9,16.1 17.9,17.6 15.8,17.6 15.8,28.7 14,28.7 14,17.6 11.9,17.6 11.9,16.1
+              " data-reactid="85"></polygon><polygon fill="#FFFFFF" points="19,16.1 23.7,16.1 23.7,17.6 20.7,17.6 20.7,21.5 23.5,21.5 23.5,23 20.7,23 20.7,27.3
+              23.7,27.3 23.7,28.7 19,28.7 19,16.1   " data-reactid="86"></polygon><path fill="#FFFFFF" d="M24.8,25.1h1.7v1c0,0.8,0.3,1.4,1,1.4c0.9,0,1.2-0.6,1.2-1.4c0-1.1-0.1-1.4-1.9-3.2
+              c-1.1-1.1-2-2.1-2-3.8c0-2.1,1-2.9,2.9-2.9c0.9,0,1.6,0.3,2,0.7c0.3,0.3,0.5,0.7,0.5,1.6v1.2h-1.6v-1c0-0.7-0.3-1.1-1-1.1
+              c-0.7,0-1,0.4-1,1.4c0,0.9,0.2,1.4,1.8,3.1c1.7,1.8,2,2.4,2,3.9c0,2-0.8,3.1-2.8,3.1c-1.6,0-2.7-0.7-2.7-2.3V25.1L24.8,25.1z" data-reactid="87"></path><polygon fill="#FFFFFF" points="31.1,16.1 37,16.1 37,17.6 34.9,17.6 34.9,28.7 33.2,28.7 33.2,17.6 31.1,17.6 31.1,16.1
+              " data-reactid="88"></polygon><polygon fill="#FFFFFF" points="40.6,16.1 42.3,16.1 42.3,21.9 42.4,21.9 45.1,16.1 46.9,16.1 43.9,22 47.1,28.7 45.1,28.7
+              42.4,22.4 42.3,22.4 42.3,28.7 40.6,28.7 40.6,16.1   " data-reactid="89"></polygon><polygon fill="#FFFFFF" points="48,16.1 49.8,16.1 49.8,28.7 48,28.7 48,16.1   " data-reactid="90"></polygon><polygon fill="#FFFFFF" points="51.2,16.1 57.1,16.1 57.1,17.6 55,17.6 55,28.7 53.2,28.7 53.2,17.6 51.2,17.6 51.2,16.1
+              " data-reactid="91"></polygon><path fill="#FFFFFF" d="M58,19.3c0-1.8,0.6-3.3,2.9-3.3c1.7,0,2.5,0.9,2.5,2.3v1.3h-1.6v-0.9c0-0.8-0.3-1.3-1-1.3
+              c-0.9,0-1.1,0.6-1.1,2.2v6.2c0,1.5,0.5,1.7,1,1.7c0.6,0,1.1-0.5,1.1-1.5v-0.9h1.6v1.4c0,1.3-0.5,2.3-2.6,2.3
+              c-2.2,0-2.9-1.2-2.9-3.1V19.3L58,19.3z" data-reactid="92"></path><polygon fill="#FFFFFF" points="64.9,16.1 66.6,16.1 66.6,21.5 68.9,21.5 68.9,16.1 70.7,16.1 70.7,28.7 68.9,28.7 68.9,23
+              66.6,23 66.6,28.7 64.9,28.7 64.9,16.1   " data-reactid="93"></polygon><polygon fill="#FFFFFF" points="72,16.1 76.7,16.1 76.7,17.6 73.7,17.6 73.7,21.5 76.5,21.5 76.5,23 73.7,23 73.7,27.3
+              76.7,27.3 76.7,28.7 72,28.7 72,16.1   " data-reactid="94"></polygon><polygon fill="#FFFFFF" points="78,16.1 80.4,16.1 82.5,26.6 82.5,26.6 82.5,16.1 84.1,16.1 84.1,28.7 81.6,28.7 79.6,18
+              79.5,18 79.5,28.7 78,28.7 78,16.1   " data-reactid="95"></polygon><polygon fill="#FFFFFF" points="6.4,9.6 21.6,9.6 21.6,10.2 6.4,10.2 6.4,9.6   " data-reactid="96"></polygon><polygon fill="#FFFFFF" points="74.5,9.6 89.7,9.6 89.7,10.2 74.5,10.2 74.5,9.6  " data-reactid="97"></polygon><path fill="#FFFFFF" d="M26.3,10.1h2.2l-1.1-2.9L26.3,10.1L26.3,10.1z M24.5,12.4l2.5-6H28l2.4,6h-0.9l-0.6-1.6H26l-0.6,1.6
+              H24.5L24.5,12.4z" data-reactid="98"></path><polygon fill="#FFFFFF" points="37,7 37,7 35,12.4 34.3,12.4 32.3,7 32.3,7 32.3,12.4 31.5,12.4 31.5,6.4 33,6.4 34.7,11.4
+              34.7,11.4 36.4,6.4 37.8,6.4 37.8,12.4 37,12.4 37,7  " data-reactid="99"></polygon><polygon fill="#FFFFFF" points="39.5,12.4 39.5,6.4 43.2,6.4 43.2,7.1 40.3,7.1 40.3,9 43.1,9 43.1,9.7 40.3,9.7 40.3,11.7
+              43.3,11.7 43.3,12.4 39.5,12.4   " data-reactid="100"></polygon><path fill="#FFFFFF" d="M45.5,9h1.4c0.9,0,1.1-0.5,1.1-0.9c0-0.5-0.2-0.9-1.1-0.9h-1.4V9L45.5,9z M45.5,9.7v2.7h-0.8v-6h2.1
+              c1,0,2,0.3,2,1.5c0,0.7-0.4,1.3-1.1,1.4v0c0.7,0.2,0.8,0.6,0.9,1.2c0.1,0.6,0.2,1.2,0.4,1.8h-0.9c-0.1-0.4-0.2-0.7-0.2-1.1
+              c-0.1-0.5-0.1-1-0.3-1.3c-0.2-0.3-0.6-0.2-0.9-0.3H45.5L45.5,9.7z" data-reactid="101"></path><polygon fill="#FFFFFF" points="50.5,12.4 50.5,6.4 51.4,6.4 51.4,12.4 50.5,12.4  " data-reactid="102"></polygon><path fill="#FFFFFF" d="M56.7,8c0-0.6-0.7-1-1.3-1c-1.5,0-1.8,1.4-1.8,2.4c0,1.2,0.4,2.4,1.7,2.4c0.6,0,1.2-0.3,1.3-1h0.9
+              c-0.1,1-1.1,1.7-2.3,1.7c-1.8,0-2.5-1.4-2.5-3.1c0-1.5,0.6-3.2,2.7-3.1c1.2,0,2,0.6,2.1,1.7H56.7L56.7,8z" data-reactid="103"></path><path fill="#FFFFFF" d="M60,10.1h2.2l-1.1-2.9L60,10.1L60,10.1z M58.2,12.4l2.5-6h0.9l2.4,6h-0.9l-0.6-1.6h-2.8l-0.6,1.6
+              H58.2L58.2,12.4z" data-reactid="104"></path><polygon fill="#FFFFFF" points="64.6,6.4 65.6,6.4 64.6,8.4 64.1,8.4 64.6,6.4  " data-reactid="105"></polygon><path fill="#FFFFFF" d="M67.4,10.7c0,0.8,0.5,1.2,1.3,1.2c0.7,0,1.5-0.2,1.5-1c0-0.6-0.5-0.8-1-0.9c-1-0.2-2.6-0.4-2.6-1.8
+              c0-1.3,1.2-1.8,2.3-1.8c1,0,2,0.5,2,1.6h-0.9c0-0.7-0.6-0.9-1.2-0.9c-0.6,0-1.4,0.2-1.4,0.9c0,0.7,0.5,0.7,1,0.9
+              c1.1,0.4,2.6,0.4,2.6,1.9c0,1.4-1.2,1.8-2.4,1.8c-1.3,0-2.2-0.5-2.1-1.9H67.4L67.4,10.7z" data-reactid="106"></path></g></svg>
+      </div>
+      <h1>Single Sign On</h1>
+
       <form autocomplete="off" action="<%= locals.action %>" method="post">
         <input type="hidden" name="uuid" value="<%= locals.cookie.uuid %>"/>
-        <input required type="text" name="login" placeholder="Enter any login" <% if (!locals.cookie.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= locals.cookie.params.login_hint %>" <% } %>>
-        <input required type="password" name="password" placeholder="and password" <% if (locals.cookie.params.login_hint) { %>autofocus="on"<% } %>>
+        <input required type="text" name="login" placeholder="Email" <% if (!locals.cookie.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= locals.cookie.params.login_hint %>" <% } %>>
+        <input required type="password" name="password" placeholder="Password" <% if (locals.cookie.params.login_hint) { %>autofocus="on"<% } %>>
 
-        <label><input type="checkbox" name="remember" value="yes" checked="yes">Stay signed in</label>
 
-        <button type="submit" name="submit" class="login login-submit">Sign-in</button>
+        <button type="submit" name="submit" class="login login-submit">Sign in</button>
       </form>
       <div class="login-help">
         <a href="<%= locals.cookie.returnTo %>">[ Cancel ]</a>
